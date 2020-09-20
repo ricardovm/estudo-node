@@ -37,3 +37,11 @@ app.get('/', (req, res) => res.send('Hello world!'))
 node index.js
 ```
 
+## Auto reload
+
+```bash
+npm install --save-dev nodemon
+```
+
+`--save-dev` para dependências usadas apenas durante o desenvolvimento (`devDependencies`). Ao 
+gerar o pacote de produção essas dependências não são incluídas.
