@@ -55,3 +55,18 @@ Também é necessário o consign para agrupar as rotas.
 ```bash
 npm install consign
 ```
+
+## Tratando requisições
+
+Intale o body-parser:
+
+```bash
+npm install body-parser
+```
+
+E a aplicação precisa ser configurada para executar o parse. Por exemplo:
+
+```javascript
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+```
