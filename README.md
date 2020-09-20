@@ -45,3 +45,13 @@ npm install --save-dev nodemon
 
 `--save-dev` para dependências usadas apenas durante o desenvolvimento (`devDependencies`). Ao 
 gerar o pacote de produção essas dependências não são incluídas.
+
+## Separação em módulos
+
+- Necessário exportar módulos com `module.exports =`
+
+Também é necessário o consign para agrupar as rotas.
+
+```bash
+npm install consign
+```
