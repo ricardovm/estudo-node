@@ -70,3 +70,11 @@ E a aplicação precisa ser configurada para executar o parse. Por exemplo:
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 ```
+
+## Acesso a base de dados
+
+```bash
+npm install mysql
+```
+
+Executar o `mysql.sh` para iniciar uma instância via docker.
