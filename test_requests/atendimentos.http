@@ -1,8 +1,20 @@
 GET http://localhost:3000/atendimentos
-
 ###
 
 POST http://localhost:3000/atendimentos
 Content-Type: application/x-www-form-urlencoded
 
 cliente=Ricardo&pet=Nanny&servico=Banho&status=agendado&observacoes=Gorduchinha&data=25/10/2020
+###
+
+GET http://localhost:3000/atendimentos/2
+###
+
+PATCH http://localhost:3000/atendimentos/2
+Content-Type: application/x-www-form-urlencoded
+
+data=25/10/2021
+###
+
+DELETE http://localhost:3000/atendimentos/8
+###

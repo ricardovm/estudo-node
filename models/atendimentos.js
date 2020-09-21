@@ -33,10 +33,64 @@ class Atendimento {
                 if (erro) {
                     res.status(400).json(erro)
                 } else {
-                    res.status(201).json(resultados)
+                    res.status(201).json({ id: resultados.insertId, ...atendimento })
                 }
             })
         }
+    }
+
+    alterar(id, valores, res) {
+        if (valores.data) {
+            dayjs.extend(customParseFormat)
+            valores.data = dayjs(valores.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:mm:ss')
+        }
+
+        const sql = 'UPDATE Atendimentos SET ? WHERE id = ?'
+
+        conexao.query(sql, [valores, id], (erro, resultados) => {
+            if (erro) {
+                res.status(400).json(erro)
+            } else {
+                res.status(200).json({ id, ...valores })
+            }
+        })
+    }
+
+    excluir(id, res) {
+        const sql = 'DELETE FROM Atendimentos WHERE id = ?'
+
+        conexao.query(sql, id, (erro, resultados) => {
+            if (erro) {
+                res.status(400).json(erro)
+            } else {
+                res.status(200).json({ id })
+            }
+        })
+    }
+
+    listar(res) {
+        const sql = 'SELECT * FROM Atendimentos'
+
+        conexao.query(sql, (erro, resultados) => {
+            if (erro) {
+                res.status(400).json(erro)
+            } else {
+                res.status(200).json(resultados)
+            }
+        })
+    }
+
+    carregarPorId(id, res) {
+        const sql = `SELECT * FROM Atendimentos WHERE id = ${id}`
+
+        conexao.query(sql, (erro, resultados) => {
+            if (erro) {
+                res.status(400).json(erro)
+            } else {
+                const [atendimento] = resultados
+                res.status(200).json(atendimento)
+            }
+        })
     }
 }
 
