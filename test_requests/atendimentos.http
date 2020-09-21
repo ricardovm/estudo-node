@@ -3,6 +3,6 @@ GET http://localhost:3000/atendimentos
 ###
 
 POST http://localhost:3000/atendimentos
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
-{ "nome": "ricardo" }
+cliente=Ricardo&pet=Nanny&servico=Banho&status=agendado&observacoes=Gorduchinha
